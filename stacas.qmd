@@ -1,0 +1,66 @@
+---
+title: "stacas"
+author: "Julia Zhong"
+date: today
+format:
+  html:
+    toc: true
+    page-layout: full
+    embed-resources: true
+    code-fold: true
+    code-tools: true
+    link-external-newwindow: true
+lightbox:
+  match: auto
+  effect: zoom
+  desc-position: right
+execute:
+  warning: false
+from: markdown+emoji 
+editor_options: 
+  chunk_output_type: console
+---
+
+## STACAS Data Integration
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r, message=FALSE}
+if (!require("remotes", quietly = TRUE))
+    install.packages("remotes")
+library(remotes)
+
+if (!requireNamespace("STACAS", quietly = TRUE))
+  remotes::install_github("carmonalab/STACAS")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(reticulate)
+library(Seurat)
+library(sceasy)
+library(STACAS)
+
+use_condaenv('DAL')
+
+seed = 1234
+set.seed(seed)
+```
+
+convert AnnData object to Seurat object
+```{r}
+sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat.rds')
+```
+
+```{r}
+object <- readRDS('seurat.rds')
+```
+
