@@ -44,18 +44,19 @@ BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
 ```{r}
 library(dplyr)
 library(ggplot2)
-library(reticulate)
+# library(reticulate)
 library(Seurat)
 library(sceasy)
 library(STACAS)
 
-use_condaenv('DAL')
+# use_condaenv('DAL')
 
 seed = 1234
 set.seed(seed)
 ```
 
 convert AnnData object to Seurat object
+
 ```{r}
 sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat.rds')
 ```
@@ -63,4 +64,37 @@ sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat
 ```{r}
 object <- readRDS('seurat.rds')
 ```
+
+```{r}
+nfeatures <- 1000
+ndim <- 20
+object <- FindVariableFeatures(object, nfeatures = nfeatures) %>%
+  NormalizeData() %>% ScaleData() %>%
+  RunPCA(npcs=ndim) %>% RunUMAP(dims=1:ndim)
+```
+
+```{r}
+pre <- DimPlot(object, group.by = "sample") + theme(aspect.ratio = 1) +
+  ggtitle("Dataset/batch before integration")
+
+pre
+```
+
+```{r}
+object_integrated <- object %>% SplitObject(split.by = "sample") %>%
+      Run.STACAS(dims = 1:ndim, anchor.features = nfeatures) %>%
+      RunUMAP(dims = 1:ndim) 
+
+post <- DimPlot(object_integrated, group.by = "sample")
+
+post
+```
+
+```{r}
+post <- DimPlot(object_integrated, group.by = "sample") + theme(aspect.ratio = 1) +
+  ggtitle("Dataset/batch after integration")
+
+pre | post
+```
+
 
