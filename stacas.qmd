@@ -97,4 +97,14 @@ post <- DimPlot(object_integrated, group.by = "sample") + theme(aspect.ratio = 1
 pre | post
 ```
 
+```{r}
+DimPlot(object, group.by = "sample", split.by = "sample") + theme(aspect.ratio = 1) +
+  ggtitle("Dataset/batch before integration")
+```
 
+```{r}
+DimPlot(object_integrated, group.by = "sample", split.by = "sample") + theme(aspect.ratio = 1) +
+  ggtitle("Dataset/batch after integration") 
+```
+
++ coord_fixed(ratio = 0.01) figure out how to get the spacing right lol
