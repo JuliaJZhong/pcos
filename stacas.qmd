@@ -57,20 +57,18 @@ seed = 1234
 set.seed(seed)
 ```
 
+take a look at the .h5ad file as an AnnData object
 ```{r}
-ad <- read_h5ad("adata_2apr2025.h5ad")
+ad <- read_h5ad("../adata_2apr2025.h5ad")
 ad
 ```
 
 convert AnnData object to Seurat object
-
 ```{r}
-# sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat.rds')
-```
-
-```{r}
-# object <- readRDS('seurat.rds')
-object = schard::h5ad2seurat('adata_2apr2025.h5ad', use.raw=TRUE)
+# IMPORTANT! some other methods result in the loss of the raw counts matrix during the conversion. in Python, need to run:
+# adata.raw = adata.X.copy() when .X is the raw matrix, AND
+# use this schard function with use.raw=TRUE
+object = schard::h5ad2seurat('../adata_2apr2025.h5ad', use.raw=TRUE)
 ```
 
 ```{r}
@@ -92,10 +90,6 @@ pre
 object_integrated <- object %>% SplitObject(split.by = "sample") %>%
       Run.STACAS(dims = 1:ndim, anchor.features = nfeatures) %>%
       RunUMAP(dims = 1:ndim) 
-
-post <- DimPlot(object_integrated, group.by = "sample")
-
-post
 ```
 
 ```{r}
@@ -116,3 +110,9 @@ DimPlot(object_integrated, group.by = "sample", split.by = "sample") + theme(asp
 ```
 
 + coord_fixed(ratio = 0.01) figure out how to get the spacing right lol
+
+convert post-data integration Seurat object back to AnnData for further analysis in Python
+```{r}
+sceasy::convertFormat(object_integrated, from="seurat", to="anndata", outFile=paste("../integrated_", Sys.Date(), ".h5ad", sep=""))
+```
+
