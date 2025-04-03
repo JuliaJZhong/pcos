@@ -42,27 +42,35 @@ BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
 ```
 
 ```{r}
+library(anndata)
 library(dplyr)
 library(ggplot2)
-# library(reticulate)
+library(reticulate)
+library(schard)
 library(Seurat)
 library(sceasy)
 library(STACAS)
 
-# use_condaenv('DAL')
+use_condaenv('DAL')
 
 seed = 1234
 set.seed(seed)
 ```
 
+```{r}
+ad <- read_h5ad("adata_2apr2025.h5ad")
+ad
+```
+
 convert AnnData object to Seurat object
 
 ```{r}
-sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat.rds')
+# sceasy::convertFormat('adata.h5ad', from="anndata", to="seurat", outFile='seurat.rds')
 ```
 
 ```{r}
-object <- readRDS('seurat.rds')
+# object <- readRDS('seurat.rds')
+object = schard::h5ad2seurat('adata_2apr2025.h5ad', use.raw=TRUE)
 ```
 
 ```{r}
