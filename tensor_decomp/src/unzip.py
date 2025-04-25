@@ -1,6 +1,6 @@
 """## unzipping and untar-ing data files"""
 
-data_path = '/home/jjzhong/tensor_decomp/data'
+data_path = '/home/jjzhong/projects/pcos/tensor_decomp/data'
 
 import glob
 import os

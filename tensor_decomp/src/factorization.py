@@ -9,7 +9,7 @@ from parafac2.normalize import prepare_dataset
 from parafac2.parafac2 import parafac2_nd, store_pf2
 import scanpy as sc
 
-data_path = '/home/jjzhong/tensor_decomp/data'
+data_path = '/home/jjzhong/projects/pcos/tensor_decomp/data'
 
 print('number of CUDA devices:', cp.cuda.runtime.getDeviceCount())
 print('-----')
@@ -50,7 +50,7 @@ print('adata.obs_vector("sample"):', adata.obs_vector('sample'))
 print('-----')
 
 # TODO run pf2 function. pick rank for it. and plot pacmap. also pull and push from github. might need to make new keys
-adata = run_pf2(adata, rank=30, max_iter=100)
+adata = run_pf2(adata, rank=30, max_iter=50)
 
 print('adata object post-pf2:', adata)
 

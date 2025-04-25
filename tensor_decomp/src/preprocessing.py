@@ -15,7 +15,7 @@ import pandas as pd
 import seaborn as sns
 import scanpy as sc
 
-data_path = '/home/jjzhong/tensor_decomp/data'
+data_path = '/home/jjzhong/projects/pcos/tensor_decomp/data'
 raw_data_path = os.path.join(data_path, 'raw_data')
 
 """---
