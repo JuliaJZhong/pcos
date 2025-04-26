@@ -14,4 +14,4 @@
 source /home/jjzhong/miniforge3/bin/activate tensorz
 
 # Run your application
-python src/factors.py
+python src/plot_factors.py
