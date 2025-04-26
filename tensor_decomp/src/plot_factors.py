@@ -66,6 +66,9 @@ def plot_histograms(adata: ad.AnnData):
     hists.savefig(fig_path + "/histograms.png")
 
 def plot_conditions(adata: ad.AnnData, ax: Axes):
+    '''
+    Standardize, hierarchically cluster, and plot heatmap of condition factor matrix
+    '''
     condition_factors = np.array(adata.uns['Pf2_A'])
     conditions, rank = condition_factors.shape
     sample_ids = adata.obs['sample'].cat.categories
@@ -126,6 +129,9 @@ def plot_conditions(adata: ad.AnnData, ax: Axes):
     ax.set_title('Condition factors')
 
 def plot_eigens(adata: ad.AnnData, ax: Axes):
+    '''
+    Scale and plot heatmap of eigen-state factor matrix
+    '''
     eigen_factors = np.array(adata.uns['Pf2_B'])
     eigen, rank = eigen_factors.shape
 
@@ -148,6 +154,9 @@ def plot_eigens(adata: ad.AnnData, ax: Axes):
     ax.set_title('Eigen-state factors')
 
 def plot_genes(adata: ad.AnnData, ax: Axes, thresh=0):
+    '''
+    Filter to top contributing genes, hierarchically cluster, scale, and plot heatmap of gene factor matrix
+    '''
     gene_factors = np.array(adata.varm['Pf2_C'])
     gene, rank = gene_factors.shape
     
@@ -157,7 +166,6 @@ def plot_genes(adata: ad.AnnData, ax: Axes, thresh=0):
     # filter out to genes who have a contribution > thresh to at least 1 component
     max_weights = np.max(np.abs(X), axis=1)
     keep = max_weights > thresh
-    print('keeping', np.sum(keep), 'genes')
     X = X[keep]
     gene_symbols = gene_symbols[keep]
 
@@ -191,7 +199,7 @@ def plot_heatmaps(adata: ad.AnnData, gene_thresh=0):
     - eigen-state factors
     - hierarchically-clustered gene factors (filtered to genes that have factor/loading > gene_thresh for at least 1 component)
     '''
-    heatmaps = plt.figure(figsize=(30, 6))
+    heatmaps = plt.figure(figsize=(30, 8))
 
     ax1 = heatmaps.add_subplot(1, 3, 1)
     plot_conditions(adata, ax1)
