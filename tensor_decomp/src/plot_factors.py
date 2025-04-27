@@ -13,6 +13,7 @@ fig_path = '/home/jjzhong/projects/pcos/tensor_decomp/figures'
 
 cmap = sns.diverging_palette(240, 10, as_cmap=True)
 
+# from https://github.com/meyer-lab/RISE/blob/main/RISE/figures/commonFuncs/plotFactors.py
 def reorder_table(projs: np.ndarray):
     '''
     Hierarchical clustering for reordering tables. Used for condition factors and gene factors
@@ -63,7 +64,7 @@ def plot_histograms(adata: ad.AnnData):
     ax3.set_title('Gene factor distribution')
     ax3.set_xlabel(r'$log_{10}$(loading)')
 
-    hists.savefig(fig_path + "/histograms.png")
+    hists.savefig(fig_path + "/histograms_stacas.png")
 
 def plot_conditions(adata: ad.AnnData, ax: Axes):
     '''
@@ -85,7 +86,7 @@ def plot_conditions(adata: ad.AnnData, ax: Axes):
     X = X[idxs]
     sample_ids = sample_ids[idxs]
 
-    # disease status bar
+    # disease status labels
     disease_status = adata.obs.groupby('sample', observed=True)['disease_status'].first()
     labels = disease_status.iloc[idxs].values
 
@@ -210,8 +211,8 @@ def plot_heatmaps(adata: ad.AnnData, gene_thresh=0):
     ax3 = heatmaps.add_subplot(1, 3, 3)
     plot_genes(adata, ax3, thresh=gene_thresh)
 
-    heatmaps.savefig(fig_path + "/heatmaps.png")
+    heatmaps.savefig(fig_path + "/heatmaps_stacas.png")
 
-adata = sc.read_h5ad(data_path + '/pf2_2025-04-22.h5ad')
+adata = sc.read_h5ad(data_path + '/pf2_stacas_2025-04-26.h5ad')
 plot_histograms(adata)
 plot_heatmaps(adata, gene_thresh=0.13)  # gene_thresh only for visualization purposes

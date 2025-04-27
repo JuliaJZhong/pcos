@@ -37,10 +37,10 @@ def run_pf2(
     return X
 
 # load the filtered and normalized output of preprocessing.py
-adata = sc.read_h5ad(data_path + '/adata_2025-04-20.h5ad')
+adata = sc.read_h5ad(data_path + '/integrated_2025-04-26.h5ad')
 
 # TODO: deeper dive into geneThreshold
-adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0.01)  
+adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0) # TODO: 0.01
 print('adata object:', adata)
 print('-----')
 adata.obs["condition_unique_idxs"] = adata.obs['condition_unique_idxs'].astype('category')
@@ -52,7 +52,7 @@ print('-----')
 # TODO run pf2 function. pick rank for it. and plot pacmap. also pull and push from github. might need to make new keys
 adata = run_pf2(adata, rank=30, max_iter=50)
 
-print('adata object post-pf2:', adata)
+print('integrated adata object post-pf2:', adata)
 
 today = date.today()
-adata.write_h5ad(filename=data_path + '/pf2_' + str(today) + '.h5ad' )
+adata.write_h5ad(filename=data_path + '/pf2_stacas_' + str(today) + '.h5ad' )
