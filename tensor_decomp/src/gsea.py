@@ -25,8 +25,12 @@ fig_path = '/home/jjzhong/projects/pcos/tensor_decomp/figures'
 adata = sc.read_h5ad(data_path + '/pf2_stacas_2025-04-26.h5ad')
 gene_factors = np.array(adata.varm['Pf2_C'])
 
-# look specifically at component with highest weight first
-component = np.argmax(adata.uns['Pf2_weights'])
+# specific components (0-indexed)
+# 9 (highest pf2 weight)
+# 26 (visually seems to correlate with 721 B lymphoblast)
+# 16 (largest magnitude from logistic regression with lasos regularization)
+# component = np.argmax(adata.uns['Pf2_weights'])
+component = 26
 
 # list of genes and their corresponding factor values for above selected component
 ranked_genes = pd.DataFrame()
@@ -52,7 +56,7 @@ for name in filtered_gene_sets:
 pre_res = gp.prerank(
     rnk=ranked_genes,                                   # dataframe of genes and scores    
     gene_sets=filtered_gene_sets,                       # your custom gene set file
-    outdir= fig_path + '/GSEA',                         # output folder
+    outdir= fig_path + '/GSEA_' + str(component),                         # output folder
     min_size=5,
     max_size=500,
     permutation_num=1000,                              
@@ -60,3 +64,10 @@ pre_res = gp.prerank(
     threads=4,
     verbose=True
 )
+
+# isolate pathway term, NES, FDR q-val
+results = pd.read_csv(fig_path + '/GSEA_' + str(component) + '/gseapy.gene_set.prerank.report.csv')
+results_5 = results[results['FDR q-val'] < 0.05][['Term', 'NES', 'FDR q-val']]
+results_10 = results[results['FDR q-val'] < 0.1][['Term', 'NES', 'FDR q-val']]
+results_5.to_csv(data_path + '/gsea_' + str(component) + '_FDR_0.05.csv', index=False)
+results_10.to_csv(data_path + '/gsea_' + str(component) + '_FDR_0.1.csv', index=False)

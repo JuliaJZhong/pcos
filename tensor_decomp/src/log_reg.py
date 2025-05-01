@@ -108,18 +108,22 @@ def run_logregcv(
         score = clf.score(X_test, y_test)
         print('accuracy:', score)
 
+    print('feature weights:', clf.coef_)
+    print('largest component:', np.argmax(np.abs(clf.coef_)))
+
     return score
 
 adata = sc.read_h5ad(data_path + '/integrated_2025-04-26.h5ad')
 adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0.01) 
 adata.obs["condition_unique_idxs"] = adata.obs['condition_unique_idxs'].astype('category')
 
-ranks_to_test = [10, 30] # [10, 30, 50, 80, 100]  
+ranks_to_test = [1, 2, 5, 10, 15, 20, 30, 50] # [10, 30, 50, 80, 100]  
 score_results = np.zeros(len(ranks_to_test))
 
 for idx, rank in enumerate(ranks_to_test):
     print(f'\n\n # components: {rank}')
     score_results[idx] = run_logregcv(adata, rank=rank, error_metric='roc_auc')
 
+print('-------- summary --------')
 print('ranks tested:', ranks_to_test)
 print('roc auc scores:', score_results)

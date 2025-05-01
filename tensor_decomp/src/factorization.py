@@ -3,11 +3,13 @@ import cupy as cp
 from datetime import date
 import numpy as np
 import pandas as pd
-from pacmap import PaCMAP
+from pacmap import PaCMAP   # TODO: remove
 import parafac2 as pf2
 from parafac2.normalize import prepare_dataset
 from parafac2.parafac2 import parafac2_nd, store_pf2
 import scanpy as sc
+from sklearn.preprocessing import StandardScaler
+import umap
 
 data_path = '/home/jjzhong/projects/pcos/tensor_decomp/data'
 
@@ -31,8 +33,12 @@ def run_pf2(
     X = store_pf2(X, pf_out)
 
     if doEmbedding:
-        pcm = PaCMAP(random_state=random_state)
-        X.obsm["X_pf2_PaCMAP"] = pcm.fit_transform(X.obsm["projections"])  # type: ignore
+        # TODO: remove
+        # pcm = PaCMAP(random_state=random_state)
+        # X.obsm["X_pf2_PaCMAP"] = pcm.fit_transform(X.obsm["projections"])  # type: ignore
+        scaled = StandardScaler().fit_transform(X.obsm["projections"])
+        reducer = umap.UMAP()
+        X.obsm["X_pf2_UMAP"] = reducer.fit_transform(scaled)
 
     return X
 
