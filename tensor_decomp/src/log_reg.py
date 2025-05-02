@@ -70,7 +70,7 @@ def run_logregcv(
     rank: int,
     error_metric: str = "roc_auc",
     max_iter: int = 50,     # for parafac2 decomposition
-    test_size: float = 0.2,
+    test_size: float = 0.4,
     random_state: int = 0
     ):
     
@@ -104,7 +104,7 @@ def run_logregcv(
         print('confidence scores:', confidence_scores)
         score = roc_auc_score(y_test, confidence_scores)
 
-    # elif error_metric == "accuracy": TODO
+    elif error_metric == "accuracy": 
         score = clf.score(X_test, y_test)
         print('accuracy:', score)
 
@@ -122,7 +122,7 @@ score_results = np.zeros(len(ranks_to_test))
 
 for idx, rank in enumerate(ranks_to_test):
     print(f'\n\n # components: {rank}')
-    score_results[idx] = run_logregcv(adata, rank=rank, error_metric='roc_auc')
+    score_results[idx] = run_logregcv(adata, rank=rank, error_metric='roc_auc') # function returns (trained model, score)
 
 print('-------- summary --------')
 print('ranks tested:', ranks_to_test)
