@@ -124,7 +124,3 @@ ax1.set_ylabel('Component')
 # ax2.set_title('ROC AUC')
 
 heat.savefig(fig_path + '/triangle.png')
-
-
-
-
