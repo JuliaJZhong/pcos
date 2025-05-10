@@ -26,6 +26,7 @@ Citation: Harris RA, McAllister JM, Strauss JF 3rd. Single-Cell RNA-Seq Identifi
 # folder structure
 [tree with each notable file and what it does
 table underneath with brief description of what it is, input/output if we want]
+
 There are 2 main folders: code and data
 
 - code: contains all code for the project. This folder contains 3 main subfolders
