@@ -29,7 +29,7 @@ table underneath with brief description of what it is, input/output if we want]
 There are 2 main folders: code and data
 
 - code: contains all code for the project. This folder contains 3 main subfolders
-- - Clustering and Annotation: contains code for clustering and annotation based on transcriptional signatures of cells
+  - Clustering and Annotation: contains code for clustering and annotation based on transcriptional signatures of cells
   - PARAFAC:
   - GSEA: contains code for GSEA of all cells and immune cells for both non-parafac and parafac-transformed data
 - data: contains preprocessed integrated data (.h5ad)
@@ -52,6 +52,7 @@ Software & package versions
 
 # citations and acknowledgements
 [just for code]
+
 scanpy: Wolf, F., Angerer, P. & Theis, F. SCANPY: large-scale single-cell gene expression data analysis. Genome Biol 19, 15 (2018). https://doi.org/10.1186/s13059-017-1382-0
 
 GSEApy: Fang Z, Liu X, Peltz G. GSEApy: a comprehensive package for performing gene set enrichment analysis in Python. Bioinformatics. 2023 Jan 1;39(1):btac757. doi: 10.1093/bioinformatics/btac757. PMID: 36426870; PMCID: PMC9805564.
