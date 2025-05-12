@@ -43,7 +43,10 @@ tensor_decomp/
 ```
 
 # Installation 🔧
-To run the code, first, download the preprocessed data file (integrated_data.h5ad) and the python script of your choice. Next, make sure the correct versions of each package are installed in your environment. Then, open the python script and change the data_path variable to be the local location of the integrated_data file you downloaded. Now, you may run the script. 
+To run the code, first, download the script(s) of your choice. Make sure the correct versions of each package are installed in your environment. Be sure to change `data_path`and `fig_path` variables to your data and desired figure output paths respectively. Now, you may run the script. 
+
+Note that to install the [parafac2]([url](https://github.com/meyer-lab/parafac2/tree/main#)) package from github, you will need to run the following in your virtual environment:
+```pip install git+https://github.com/meyer-lab/parafac2.git@main```
 
 Software & Packages
 ```
@@ -52,6 +55,7 @@ cupy==13.4.1
 gseapy==1.1.8
 h5py==3.7
 pacmap==0.8.0
+parafac2==1.0.0
 scanpy==1.11.1
 scikit_learn==1.6.1
 scipy==1.15.3
@@ -78,11 +82,3 @@ pandas==2.2.3
 [1] World Health Organization. Polycystic Ovary Syndrome. WHO, 2025.
 
 [2] Harris RA, McAllister JM, Strauss JF 3rd. Single-Cell RNA-Seq Identifies Pathways and Genes Contributing to the Hyperandrogenemia Associated with Polycystic Ovary Syndrome. Int J Mol Sci. 2023 Jun 25;24(13):10611. doi: 10.3390/ijms241310611. PMID: 37445796; PMCID: PMC10341507.
-
-scanpy: Wolf, F., Angerer, P. & Theis, F. SCANPY: large-scale single-cell gene expression data analysis. Genome Biol 19, 15 (2018). https://doi.org/10.1186/s13059-017-1382-0
-
-GSEApy: Fang Z, Liu X, Peltz G. GSEApy: a comprehensive package for performing gene set enrichment analysis in Python. Bioinformatics. 2023 Jan 1;39(1):btac757. doi: 10.1093/bioinformatics/btac757. PMID: 36426870; PMCID: PMC9805564.
-
-[PARAFAC2](https://github.com/meyer-lab/parafac2)
-
-
