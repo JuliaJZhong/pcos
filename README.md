@@ -83,5 +83,6 @@ scanpy: Wolf, F., Angerer, P. & Theis, F. SCANPY: large-scale single-cell gene e
 
 GSEApy: Fang Z, Liu X, Peltz G. GSEApy: a comprehensive package for performing gene set enrichment analysis in Python. Bioinformatics. 2023 Jan 1;39(1):btac757. doi: 10.1093/bioinformatics/btac757. PMID: 36426870; PMCID: PMC9805564.
 
+[PARAFAC2]([url](https://github.com/meyer-lab/parafac2))
 
 
