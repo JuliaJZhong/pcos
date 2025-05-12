@@ -1,3 +1,5 @@
+just some notes about my files for safekeeping <3
+
 raw_adata.h5ad                      anndata object, raw concatenation of 10x genomics files
 adata_2025-04-20.h5ad               anndata object, output of preprocessing.py
 integrated_2025-04-26.h5ad          anndata object, output of stacas.qmd
