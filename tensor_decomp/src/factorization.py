@@ -33,9 +33,6 @@ def run_pf2(
     X = store_pf2(X, pf_out)
 
     if doEmbedding:
-        # TODO: remove
-        # pcm = PaCMAP(random_state=random_state)
-        # X.obsm["X_pf2_PaCMAP"] = pcm.fit_transform(X.obsm["projections"])  # type: ignore
         scaled = StandardScaler().fit_transform(X.obsm["projections"])
         reducer = umap.UMAP()
         X.obsm["X_pf2_UMAP"] = reducer.fit_transform(scaled)
@@ -45,7 +42,6 @@ def run_pf2(
 # load the filtered and normalized output of preprocessing.py
 adata = sc.read_h5ad(data_path + '/integrated_2025-04-26.h5ad')
 
-# TODO: deeper dive into geneThreshold
 adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0) # TODO: 0.01
 print('adata object:', adata)
 print('-----')
@@ -55,7 +51,6 @@ print('-----')
 print('adata.obs_vector("sample"):', adata.obs_vector('sample'))
 print('-----')
 
-# TODO run pf2 function. pick rank for it. and plot pacmap. also pull and push from github. might need to make new keys
 adata = run_pf2(adata, rank=30, max_iter=50)
 
 print('integrated adata object post-pf2:', adata)

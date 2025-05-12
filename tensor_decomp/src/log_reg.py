@@ -9,9 +9,11 @@ from parafac2.parafac2 import parafac2_nd, store_pf2
 from sklearn.linear_model import LinearRegression, LogisticRegressionCV
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
+import umap
 
 data_path = '/home/jjzhong/projects/pcos/tensor_decomp/data'
 
+# forgive me for pasting this from factorization.py
 def run_pf2(
     X: ad.AnnData,
     rank: int,
@@ -28,8 +30,9 @@ def run_pf2(
     X = store_pf2(X, pf_out)
 
     if doEmbedding:
-        pcm = PaCMAP(random_state=random_state)
-        X.obsm["X_pf2_PaCMAP"] = pcm.fit_transform(X.obsm["projections"])  # type: ignore
+        scaled = StandardScaler().fit_transform(X.obsm["projections"])
+        reducer = umap.UMAP()
+        X.obsm["X_pf2_UMAP"] = reducer.fit_transform(scaled)
 
     return X
 
