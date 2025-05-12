@@ -21,11 +21,14 @@ AnnData object with n_obs × n_vars = 20775 (cells) × 28851 (genes)
 - obsp: 'distances', 'connectivities'
 
 # Structure 🌲
+```
 annotation
 └── clustering_and_annotation.py
+
 gsea
 ├── gsea.py
 └── pf2_gsea.py
+
 preprocessing
 ├── 10x_to_anndata.py
 ├── data_integration
@@ -37,6 +40,7 @@ preprocessing
 │   └── stacas.qmd
 ├── preprocessing.py
 └── unzip.py
+
 tensor_decomp/
 ├── info.txt
 └── src
@@ -45,6 +49,7 @@ tensor_decomp/
     ├─- plot_embedding.py
     ├── plot_factors.py
     └── plot_triangle.py
+``
 
 There are 2 main folders: code and data
 
