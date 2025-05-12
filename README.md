@@ -68,15 +68,14 @@ seaborn==0.13.2
 umap_learn==0.5.7
 ```
 
-Note:
-for gsea.py and clustering_and_annotation.py
+For gsea.py and clustering_and_annotation.py:
 ```
 python==3.9
 matplotlib==3.10.0
 numpy==2.0.2
 pandas==2.2.2
 ```
-for preprocessing/, tensor_decomp/, and pf2_gsea.py
+For preprocessing/, tensor_decomp/, and pf2_gsea.py:
 ```
 python==3.13.3
 matplotlib==3.10.3
