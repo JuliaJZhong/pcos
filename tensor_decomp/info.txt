@@ -1,0 +1,16 @@
+raw_adata.h5ad                      anndata object, raw concatenation of 10x genomics files
+adata_2025-04-20.h5ad               anndata object, output of preprocessing.py
+integrated_2025-04-26.h5ad          anndata object, output of stacas.qmd
+pf2_2025-04-21.h5ad                 anndata object, output of factorization.py, parafac2 tensor decomposition of adata_2025-04-20.h5ad with 100 component, geneThresh=0.01
+pf2_2025-04-22.h5ad                 anndata object, output of factorization.py, parafac2 tensor decomposition of adata_2025-04-20.h5ad with 30 components, geneThresh=0.01
+pf2_stacas_2025-04-26.h5ad          anndata object, output of factorization.py, parafac2 tensor decomposition of integrated_2025-04-26.h5ad with 30 components, geneThresh=0.01
+pf2_stacas_umap_2025-04-26.h5ad     anndata object, output of factorization.py, parafac2 tensor decomposition of integrated_2025-04-26.h5ad with 30 components, geneThresh=0.01, with .obs 'X_pf2_UMAP' embedding
+pf2_stacas_2025-04-27.h5ad          anndata object, output of factorization.py, parafac2 tensor decomposition of integrated_2025-04-26.h5ad with 30 components, geneThresh=0
+c2.all.v2024.1.Hs.symbols.gmt       list of gene sets for GSEA, one used by harris et al. (2023)
+
+components (0-indexed) i have further analyzed:
+- 9: highest Pf2 weight
+- 16: highest weight in logistic regression w/ LASSO CV
+- 21: high predictive power in paired un-penalized logistic regression
+- 24: second highest weight in logistic regression w/ LASSO CV and high predictive power in paired un-penalized logistic regression
+- 26: seems to have weighted projections capturing variance in 721 B lymphoblast cluster
