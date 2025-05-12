@@ -23,41 +23,33 @@ AnnData object with n_obs × n_vars = 20775 (cells) × 28851 (genes)
 # Structure 🌲
 ```
 annotation/
-└── clustering_and_annotation.py
+└── clustering_and_annotation.py       # script for Leiden clustering and cell-type annotation
 
 gsea/
-├── gsea.py
-└── pf2_gsea.py
+├── gsea.py                            # script for GSEA between PCOS and healthy control groups   
+└── pf2_gsea.py                        # script for GSEA on PARAFAC2 gene factors
 
 preprocessing/
-├── 10x_to_anndata.py
+├── 10x_to_anndata.py                  # converting feature-barcode matrices into an anndata object
 ├── data_integration/
-│   ├── pcos.Rproj
-│   ├── renv
+│   ├── pcos.Rproj                     # R project for STACAS data integration
+│   ├── renv                           # R project environment
 │   │   ├── activate.R
 │   │   └── settings.json
 │   ├── renv.lock
-│   └── stacas.qmd
-├── preprocessing.py
-└── unzip.py
+│   └── stacas.qmd                     # notebook for STACAS data integration
+├── preprocessing.py                   # script for quality control, normalization, feature selection, dimensionality reduction
+└── unzip.py                           # script for unzipping original .zip file of feature-barcode matrices
 
 tensor_decomp/
-├── info.txt
+├── info.txt                           # miscellaneous notes regarding data files
 └── src
-    ├── factorization.py
-    ├── log_reg.py
-    ├─- plot_embedding.py
-    ├── plot_factors.py
-    └── plot_triangle.py
+    ├── factorization.py               # script for performing PARAFAC2 tensor decomposition
+    ├── log_reg.py                     # script for performing logistic regression CV with LASSO regularization on a range of PARAFAC2 decompositions
+    ├─- plot_embedding.py              # script for plotting UMAP embeddings overlayed with PARAFAC2 weighted projections
+    ├── plot_factors.py                # script for plotting heatmaps of sample factors, eigen-state factors, gene factors
+    └── plot_triangle.py               # script for performing un-penalized logistic regression on pairs of components and plotting heatmap of prediction accuracy
 ```
-
-There are 2 main folders: code and data
-
-- code: contains all code for the project. This folder contains 3 main subfolders
-  - Clustering and Annotation: contains code for clustering and annotation based on transcriptional signatures of cells
-  - PARAFAC:
-  - GSEA: contains code for GSEA of all cells and immune cells for both non-parafac and parafac-transformed data
-- data: contains preprocessed integrated data (.h5ad)
 
 # Installation 🔧
 To run the code, first, download the preprocessed data file (integrated_data.h5ad) and the python script of your choice. Next, make sure the correct versions of each package are installed in your environment. Then, open the python script and change the data_path variable to be the local location of the integrated_data file you downloaded. Now, you may run the script. 
