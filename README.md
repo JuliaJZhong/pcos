@@ -1,5 +1,5 @@
 # Single-cell transcriptomics analysis for elucidation of molecular signatures of polycystic ovary syndrome
-Polycystic ovary syndrome (PCO) is an under-researched hormonal disease that affects an estimated 6–13% of women of reproductive age worldwide [1]. Understanding the genetic mechanisms underlying the pathophysiology of the disease is crucial for developing novel diagnostics and targeted treatments. In this work, we analyzed a single-cell RNA sequencing dataset of ovarian theca cells obtained from healthy controls and PCOS patients via clustering and cell-type annotation, tensor decomposition (PARAFAC2), and gene set enrichment analysis (GSEA) to elucidate upregulation and downregulation of enriched pathways. Building upon the original authors’ analysis with computational methods that harness cell-type specificity, we pinpointed potential areas of dysregulation in PCOS surrounding ovarian insufficiency, inflammatory and oxidative stress response, lipid metabolism, and insulin growth factor signaling. 
+Polycystic ovary syndrome (PCOS) is an under-researched hormonal disease that affects an estimated 6–13% of women of reproductive age worldwide [1]. Understanding the genetic mechanisms underlying the pathophysiology of the disease is crucial for developing novel diagnostics and targeted treatments. In this work, we analyzed a single-cell RNA sequencing dataset of ovarian theca cells obtained from healthy controls and PCOS patients via clustering and cell-type annotation, tensor decomposition (PARAFAC2), and gene set enrichment analysis (GSEA) to elucidate upregulation and downregulation of enriched pathways. Building upon the original authors’ analysis with computational methods that harness cell-type specificity, we pinpointed potential areas of dysregulation in PCOS surrounding ovarian insufficiency, inflammatory and oxidative stress response, lipid metabolism, and insulin growth factor signaling. 
 
 # Overview
 This repo contains code that analyzes scRNAseq data of ovarian tissue from healthy controls and PCOS patients. Analysis includes clustering and celltype annotations based on transcriptional signatures, PARAFAC2 decomposition, and GSEA.
@@ -47,8 +47,9 @@ Software & package versions
  - gseapy=1.1.8
 
 
-# Citations and Acknowledgements
+# References
 [1] World Health Organization. Polycystic Ovary Syndrome. WHO, 2025.
+
 [2] Harris RA, McAllister JM, Strauss JF 3rd. Single-Cell RNA-Seq Identifies Pathways and Genes Contributing to the Hyperandrogenemia Associated with Polycystic Ovary Syndrome. Int J Mol Sci. 2023 Jun 25;24(13):10611. doi: 10.3390/ijms241310611. PMID: 37445796; PMCID: PMC10341507.
 
 scanpy: Wolf, F., Angerer, P. & Theis, F. SCANPY: large-scale single-cell gene expression data analysis. Genome Biol 19, 15 (2018). https://doi.org/10.1186/s13059-017-1382-0
