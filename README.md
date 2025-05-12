@@ -1,10 +1,10 @@
-# Single-cell transcriptomics analysis for elucidation of molecular signatures of polycystic ovary syndrome
+# Single-cell transcriptomics analysis for elucidation of molecular signatures of polycystic ovary syndrome 🧬 
 Polycystic ovary syndrome (PCOS) is an under-researched hormonal disease that affects an estimated 6–13% of women of reproductive age worldwide [1]. Understanding the genetic mechanisms underlying the pathophysiology of the disease is crucial for developing novel diagnostics and targeted treatments. In this work, we analyzed a single-cell RNA sequencing dataset of ovarian theca cells obtained from healthy controls and PCOS patients via clustering and cell-type annotation, tensor decomposition (PARAFAC2), and gene set enrichment analysis (GSEA) to elucidate upregulation and downregulation of enriched pathways. Building upon the original authors’ analysis with computational methods that harness cell-type specificity, we pinpointed potential areas of dysregulation in PCOS surrounding ovarian insufficiency, inflammatory and oxidative stress response, lipid metabolism, and insulin growth factor signaling. 
 
 # Overview
-This repo contains code that analyzes scRNAseq data of ovarian tissue from healthy controls and PCOS patients. Analysis includes clustering and celltype annotations based on transcriptional signatures, PARAFAC2 decomposition, and GSEA.
+This repository contains code for analyzing scRNA-seq data of cells extracted from the ovarian theca interna of PCOS patients and healthy controls. Analysis includes preprocessing (including Sub-Type Anchor Correction for Alignment in Seurat (STACAS)), clustering and cell-type annotation, PARAFAC2 tensor decomposition, and gene set enrichment analysis (GSEA).
 
-All code in this repo was written by our team. Libraries used for analysis and their citations are included at the bottom of the README.
+Python and R ibraries used for analysis are cited at the bottom of this page.
 
 # Data
 The dataset analyzed consists of single-cell RNA sequencing data of 20 samples (5 PCOS, 5 healthy controls). "Human theca interna tissue was obtained from follicles of women undergoing hysterectomy" After treatment, processing, and freezing in liquid N2, all samples were sent to "Active Motif (Carlsbad, CA, USA) for... single-cell library preparation, using Active Motifs proprietary conditions. Following single-cell library preparation, 10× single-cell RNA sequencing (scRNA-seq) was performed using an Illumina NextSeq 500 (San Diego, CA, USA) sequencing apparatus to generate 91 bp sequencing reads."[2]
