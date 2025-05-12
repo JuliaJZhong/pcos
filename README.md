@@ -22,16 +22,16 @@ AnnData object with n_obs × n_vars = 20775 (cells) × 28851 (genes)
 
 # Structure 🌲
 ```
-annotation
+annotation/
 └── clustering_and_annotation.py
 
-gsea
+gsea/
 ├── gsea.py
 └── pf2_gsea.py
 
-preprocessing
+preprocessing/
 ├── 10x_to_anndata.py
-├── data_integration
+├── data_integration/
 │   ├── pcos.Rproj
 │   ├── renv
 │   │   ├── activate.R
@@ -49,7 +49,7 @@ tensor_decomp/
     ├─- plot_embedding.py
     ├── plot_factors.py
     └── plot_triangle.py
-``
+```
 
 There are 2 main folders: code and data
 
