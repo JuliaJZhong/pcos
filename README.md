@@ -32,12 +32,12 @@ gsea/
 preprocessing/
 ├── 10x_to_anndata.py                  # converting feature-barcode matrices into an anndata object
 ├── data_integration/
-│   ├── pcos.Rproj                     # R project for STACAS data integration
-│   ├── renv                           # R project environment
-│   │   ├── activate.R
-│   │   └── settings.json
-│   ├── renv.lock
-│   └── stacas.qmd                     # notebook for STACAS data integration
+│   ├── pcos.Rproj                     # R project configuration file
+│   ├── renv                           
+│   │   ├── activate.R                 # script to activate R environment
+│   │   └── settings.json              # stores Quarto project metadata
+│   ├── renv.lock                      # R project package information
+│   └── stacas.qmd                     # Quarto markdown notebook for STACAS data integration
 ├── preprocessing.py                   # script for quality control, normalization, feature selection, dimensionality reduction
 └── unzip.py                           # script for unzipping original .zip file of feature-barcode matrices
 
