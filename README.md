@@ -54,17 +54,35 @@ tensor_decomp/
 # Installation 🔧
 To run the code, first, download the preprocessed data file (integrated_data.h5ad) and the python script of your choice. Next, make sure the correct versions of each package are installed in your environment. Then, open the python script and change the data_path variable to be the local location of the integrated_data file you downloaded. Now, you may run the script. 
 
-Software & package versions
- - python=3.9
- - anndata=0.11.4
- - scanpy=1.11.1
- - numpy=2.0.2
- - matplotlib=3.10.0
- - pandas=2.2.2
- - h5py=3.7
- - seaborn=0.13.2
- - gseapy=1.1.8
+Software & Packages
+```
+anndata==0.11.4
+cupy==13.4.1
+gseapy==1.1.8
+h5py==3.7
+pacmap==0.8.0
+scanpy==1.11.1
+scikit_learn==1.6.1
+scipy==1.15.3
+seaborn==0.13.2
+umap_learn==0.5.7
+```
 
+Note:
+for gsea.py and clustering_and_annotation.py
+```
+python==3.9
+matplotlib==3.10.0
+numpy==2.0.2
+pandas==2.2.2
+```
+for preprocessing/, tensor_decomp/, and pf2_gsea.py
+```
+python==3.13.3
+matplotlib==3.10.3
+numpy==2.2.5
+pandas==2.2.3
+```
 
 # References 📋
 [1] World Health Organization. Polycystic Ovary Syndrome. WHO, 2025.
