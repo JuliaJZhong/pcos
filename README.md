@@ -7,18 +7,9 @@ This repository contains code for analyzing scRNA-seq data of cells extracted fr
 Python and R ibraries used for analysis are cited at the bottom of this page.
 
 # Data 📊
-The dataset analyzed consists of single-cell RNA sequencing data of 20 samples (5 PCOS, 5 healthy controls). "Human theca interna tissue was obtained from follicles of women undergoing hysterectomy" After treatment, processing, and freezing in liquid N2, all samples were sent to "Active Motif (Carlsbad, CA, USA) for... single-cell library preparation, using Active Motifs proprietary conditions. Following single-cell library preparation, 10× single-cell RNA sequencing (scRNA-seq) was performed using an Illumina NextSeq 500 (San Diego, CA, USA) sequencing apparatus to generate 91 bp sequencing reads."[2]
+The dataset analyzed consists of single-cell RNA sequencing data of 20 samples (5 PCOS, 5 healthy controls). "Human theca interna tissue was obtained from follicles of women undergoing hysterectomy" After treatment, processing, and freezing in liquid N2, all samples were sent to "Active Motif (Carlsbad, CA, USA) for... single-cell library preparation, using Active Motifs proprietary conditions. Following single-cell library preparation, 10× single-cell RNA sequencing (scRNA-seq) was performed using an Illumina NextSeq 500 (San Diego, CA, USA) sequencing apparatus to generate 91 bp sequencing reads"[2].
 
-You can access the .zip file of raw data online [here](https://zenodo.org/records/7942968). You may contact us for direct access to the .h5ad file that contains the integrated, preprocessed data stored as an `anndata` object (you may also run the code in the preprocessing scripts). The anndata object has the following structure:
-
-AnnData object with n_obs × n_vars = 20775 (cells) × 28851 (genes)
-- obs: 'sample', 'treatment', 'donor_id', 'disease_status', 'n_genes_by_counts', 'log1p_n_genes_by_counts', 'total_counts', 'log1p_total_counts', 'pct_counts_in_top_50_genes', 'pct_counts_in_top_100_genes', 'pct_counts_in_top_200_genes', 'pct_counts_in_top_500_genes', 'total_counts_mt', 'log1p_total_counts_mt', 'pct_counts_mt', 'total_counts_ribo', 'log1p_total_counts_ribo', 'pct_counts_ribo', 'total_counts_hb', 'log1p_total_counts_hb', 'pct_counts_hb', 'n_genes'
-- var: 'mt', 'ribo', 'hb', 'n_cells_by_counts', 'mean_counts', 'log1p_mean_counts', 'pct_dropout_by_counts', 'total_counts', 'log1p_total_counts', 'n_cells', 'highly_variable', 'means', 'dispersions', 'dispersions_norm', 'highly_variable_nbatches', 'highly_variable_intersection'
-- uns: 'log1p', 'hvg', 'pca', 'sample_colors', 'treatment_colors', 'disease_status_colors', 'neighbors', 'umap'
-- obsm: 'X_pca', 'X_umap'
-- varm: 'PCs'
-- layers: 'counts'
-- obsp: 'distances', 'connectivities'
+You can access the .zip file of raw data online [here](https://zenodo.org/records/7942968). You may contact us for direct access to the .h5ad file that contains the integrated, preprocessed data stored as an `anndata` object (you may also run the code in the preprocessing scripts). 
 
 # Structure 🌲
 ```
