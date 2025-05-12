@@ -1,12 +1,12 @@
 # Single-cell transcriptomics analysis for elucidation of molecular signatures of polycystic ovary syndrome ⚓️ 👩‍👩‍👧‍👦 🤺 🍄 🧬
 Polycystic ovary syndrome (PCOS) is an under-researched hormonal disease that affects an estimated 6–13% of women of reproductive age worldwide [1]. Understanding the genetic mechanisms underlying the pathophysiology of the disease is crucial for developing novel diagnostics and targeted treatments. In this work, we analyzed a single-cell RNA sequencing dataset of ovarian theca cells obtained from healthy controls and PCOS patients via clustering and cell-type annotation, tensor decomposition via Parallel Factor Analysis 2 (PARAFAC2), and gene set enrichment analysis (GSEA) to elucidate upregulation and downregulation of enriched pathways. Building upon the original authors’ analysis with computational methods that harness cell-type specificity, we pinpointed potential areas of dysregulation in PCOS surrounding ovarian insufficiency, inflammatory and oxidative stress response, lipid metabolism, and insulin growth factor signaling. 
 
-# Overview
+# Overview 🌈
 This repository contains code for analyzing scRNA-seq data of cells extracted from the ovarian theca interna of PCOS patients and healthy controls. Analysis includes preprocessing (including Sub-Type Anchor Correction for Alignment in Seurat (STACAS)), clustering and cell-type annotation, PARAFAC2 tensor decomposition, and gene set enrichment analysis (GSEA).
 
 Python and R ibraries used for analysis are cited at the bottom of this page.
 
-# Data
+# Data 📊
 The dataset analyzed consists of single-cell RNA sequencing data of 20 samples (5 PCOS, 5 healthy controls). "Human theca interna tissue was obtained from follicles of women undergoing hysterectomy" After treatment, processing, and freezing in liquid N2, all samples were sent to "Active Motif (Carlsbad, CA, USA) for... single-cell library preparation, using Active Motifs proprietary conditions. Following single-cell library preparation, 10× single-cell RNA sequencing (scRNA-seq) was performed using an Illumina NextSeq 500 (San Diego, CA, USA) sequencing apparatus to generate 91 bp sequencing reads."[2]
 
 You can access the .zip file of raw data online [here](https://zenodo.org/records/7942968). You may contact us for direct access to the .h5ad file that contains the integrated, preprocessed data stored as an `anndata` object (you may also run the code in the preprocessing scripts). The anndata object has the following structure:
@@ -20,9 +20,31 @@ AnnData object with n_obs × n_vars = 20775 (cells) × 28851 (genes)
 - layers: 'counts'
 - obsp: 'distances', 'connectivities'
 
-# Structure
-[tree with each notable file and what it does
-table underneath with brief description of what it is, input/output if we want]
+# Structure 🌲
+annotation
+└── clustering_and_annotation.py
+gsea
+├── gsea.py
+└── pf2_gsea.py
+preprocessing
+├── 10x_to_anndata.py
+├── data_integration
+│   ├── pcos.Rproj
+│   ├── renv
+│   │   ├── activate.R
+│   │   └── settings.json
+│   ├── renv.lock
+│   └── stacas.qmd
+├── preprocessing.py
+└── unzip.py
+tensor_decomp/
+├── info.txt
+└── src
+    ├── factorization.py
+    ├── log_reg.py
+    ├─- plot_embedding.py
+    ├── plot_factors.py
+    └── plot_triangle.py
 
 There are 2 main folders: code and data
 
@@ -32,7 +54,7 @@ There are 2 main folders: code and data
   - GSEA: contains code for GSEA of all cells and immune cells for both non-parafac and parafac-transformed data
 - data: contains preprocessed integrated data (.h5ad)
 
-# Installation
+# Installation 🔧
 To run the code, first, download the preprocessed data file (integrated_data.h5ad) and the python script of your choice. Next, make sure the correct versions of each package are installed in your environment. Then, open the python script and change the data_path variable to be the local location of the integrated_data file you downloaded. Now, you may run the script. 
 
 Software & package versions
@@ -47,7 +69,7 @@ Software & package versions
  - gseapy=1.1.8
 
 
-# References
+# References 📋
 [1] World Health Organization. Polycystic Ovary Syndrome. WHO, 2025.
 
 [2] Harris RA, McAllister JM, Strauss JF 3rd. Single-Cell RNA-Seq Identifies Pathways and Genes Contributing to the Hyperandrogenemia Associated with Polycystic Ovary Syndrome. Int J Mol Sci. 2023 Jun 25;24(13):10611. doi: 10.3390/ijms241310611. PMID: 37445796; PMCID: PMC10341507.
