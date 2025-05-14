@@ -43,7 +43,7 @@ tensor_decomp/
 ```
 
 # Installation 🔧
-To run the code, first, download the script(s) of your choice. Make sure the correct versions of each package are installed in your environment. Be sure to change `data_path`and `fig_path` variables to your data and desired figure output paths respectively. Now, you may run the script. 
+To run the code, first, download the script(s) of your choice. Make sure the correct versions of each package are installed in your environment. Be sure to change `data_path`and `fig_path` variables to your data and desired figure output paths respectively. Now, you may run the script(s)!
 
 Note that to install the Python package [parafac2](https://github.com/meyer-lab/parafac2/tree/main#) from GitHub, run the following in your virtual environment:
 ```
