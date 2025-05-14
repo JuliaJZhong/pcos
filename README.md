@@ -49,8 +49,9 @@ Note that to install the Python package [parafac2](https://github.com/meyer-lab/
 ```
 pip install git+https://github.com/meyer-lab/parafac2.git@main
 ```
-To install the R packages [schard](https://github.com/cellgeni/schard/tree/main) and [STACAS](https://github.com/carmonalab/STACAS) from GitHub into your [renv](https://rstudio.github.io/renv/articles/renv.html), run the following in your console:
+To install the R packages [sceasy](https://github.com/cellgeni/sceasy), [schard](https://github.com/cellgeni/schard/tree/main), and [STACAS](https://github.com/carmonalab/STACAS) from GitHub into your [renv](https://rstudio.github.io/renv/articles/renv.html), run the following in your console:
 ```
+renv::install("cellgeni/sceasy")
 renv::install("cellgeni/schard")
 renv::install("carmonalab/STACAS")
 ```
@@ -89,6 +90,7 @@ For preprocessing/data_integration/ (R packages):
 anndata==0.7.5.6
 dplyr==1.1.4
 ggplot2==3.5.2
+sceasy==0.0.7
 schard==0.0.1
 Seurat==5.3.0
 STACAS==2.2.2                                       
