@@ -56,7 +56,7 @@ remotes::install_github("cellgeni/schard")
 remotes::install_github("carmonalab/STACAS")
 ```
 
-Software & Packages
+### Software & Packages
 ```
 anndata==0.11.4
 cupy==13.4.1
