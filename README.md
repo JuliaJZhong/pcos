@@ -49,11 +49,10 @@ Note that to install the Python package [parafac2](https://github.com/meyer-lab/
 ```
 pip install git+https://github.com/meyer-lab/parafac2.git@main
 ```
-To install the R packages [schard](https://github.com/cellgeni/schard/tree/main) and [STACAS](https://github.com/carmonalab/STACAS) from GitHub, you can use [remotes](https://github.com/r-lib/remotes):
+To install the R packages [schard](https://github.com/cellgeni/schard/tree/main) and [STACAS](https://github.com/carmonalab/STACAS) from GitHub into your [renv](https://rstudio.github.io/renv/articles/renv.html), run the following in your console:
 ```
-install.packages("remotes")
-remotes::install_github("cellgeni/schard")
-remotes::install_github("carmonalab/STACAS")
+renv::install("cellgeni/schard")
+renv::install("carmonalab/STACAS")
 ```
 
 ### Software & Packages
