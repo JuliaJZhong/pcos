@@ -84,7 +84,7 @@ matplotlib==3.10.3
 numpy==2.2.5
 pandas==2.2.3
 ```
-For preprocessing/data_integration/:
+For preprocessing/data_integration/ (R packages):
 ```
 anndata==0.7.5.6
 dplyr==1.1.4
