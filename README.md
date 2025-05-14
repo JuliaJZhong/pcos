@@ -72,12 +72,21 @@ matplotlib==3.10.0
 numpy==2.0.2
 pandas==2.2.2
 ```
-For preprocessing/, tensor_decomp/, and pf2_gsea.py:
+For preprocessing/ Python scripts, tensor_decomp/, and pf2_gsea.py:
 ```
 python==3.13.3
 matplotlib==3.10.3
 numpy==2.2.5
 pandas==2.2.3
+```
+For preprocessing/data_integration/:
+```
+anndata==0.7.5.6
+dplyr==1.1.4
+ggplot2==3.5.2
+[schard](https://github.com/cellgeni/schard/tree/main)==0.0.1
+Seurat==5.3.0
+[STACAS](https://github.com/carmonalab/STACAS)==2.2.2                                       
 ```
 
 # References 📋
