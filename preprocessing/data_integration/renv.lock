@@ -4644,6 +4644,36 @@
       "Maintainer": "Mirek Kratochvil <exa.exa@gmail.com>",
       "Repository": "CRAN"
     },
+    "sceasy": {
+      "Package": "sceasy",
+      "Version": "0.0.7",
+      "Source": "GitHub",
+      "Type": "Package",
+      "Title": "A package to help convert different single-cell data formats to each other",
+      "Authors@R": "c( person('Vladimir', 'Kiselev', email='wikiselev@users.noreply.github.com', role='cre'), person('Ni', 'Huang', email='nh3@users.noreply.github.com', role='aut'))",
+      "Description": "Convert Seurat, SingleCellExperiment, Loom object to AnnData object. Convert SingleCellExperiment object to and from Loom object.",
+      "Depends": [
+        "R (>= 3.5.1)",
+        "reticulate"
+      ],
+      "Suggests": [
+        "Seurat (>= 3.0.1)",
+        "SingleCellExperiment (>= 1.4.0)",
+        "LoomExperiment (>= 1.1.5)",
+        "monocle3 (>= 0.2.0)"
+      ],
+      "SystemRequirements": "anndata, loompy",
+      "License": "GPL-3",
+      "LazyDate": "true",
+      "Author": "Vladimir Kiselev [cre], Ni Huang [aut]",
+      "Maintainer": "Vladimir Kiselev <wikiselev@users.noreply.github.com>",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "cellgeni",
+      "RemoteRepo": "sceasy",
+      "RemoteRef": "master",
+      "RemoteSha": "c1c0bf973b0b3b67e013c01bf583d1fcc4c9f8cc"
+    },
     "schard": {
       "Package": "schard",
       "Version": "0.0.1",

@@ -31,6 +31,7 @@ When you click the **Render** button a document will be generated that includes 
 library(anndata)
 library(dplyr)
 library(ggplot2)
+library(sceasy)
 library(schard)
 library(Seurat)
 library(STACAS)
