@@ -42,7 +42,7 @@ def run_pf2(
 # load the filtered and normalized output of preprocessing.py
 adata = sc.read_h5ad(data_path + '/integrated_2025-04-26.h5ad')
 
-adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0) # TODO: 0.01
+adata = prepare_dataset(adata, condition_name='sample', geneThreshold=0.01)
 print('adata object:', adata)
 print('-----')
 adata.obs["condition_unique_idxs"] = adata.obs['condition_unique_idxs'].astype('category')
