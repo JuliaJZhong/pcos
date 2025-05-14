@@ -28,30 +28,30 @@ editor_options:
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r, message=FALSE}
-if (!require("remotes", quietly = TRUE))
-    install.packages("remotes")
-library(remotes)
-
-if (!requireNamespace("STACAS", quietly = TRUE))
-  remotes::install_github("carmonalab/STACAS")
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
+# # renv::restore()
+# 
+# if (!require("remotes", quietly = TRUE))
+#     install.packages("remotes")
+# library(remotes)
+# 
+# if (!requireNamespace("STACAS", quietly = TRUE))
+#   remotes::install_github("carmonalab/STACAS")
+# 
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# 
+# BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
 ```
 
 ```{r}
 library(anndata)
 library(dplyr)
 library(ggplot2)
-library(reticulate)
 library(schard)
 library(Seurat)
-library(sceasy)
 library(STACAS)
 
-use_condaenv('DAL')
+# use_condaenv('DAL')
 
 seed = 1234
 set.seed(seed)
