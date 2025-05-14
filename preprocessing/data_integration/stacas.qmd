@@ -27,22 +27,6 @@ editor_options:
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
-```{r, message=FALSE}
-# # renv::restore()
-# 
-# if (!require("remotes", quietly = TRUE))
-#     install.packages("remotes")
-# library(remotes)
-# 
-# if (!requireNamespace("STACAS", quietly = TRUE))
-#   remotes::install_github("carmonalab/STACAS")
-# 
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#     install.packages("BiocManager")
-# 
-# BiocManager::install(c("LoomExperiment", "SingleCellExperiment"))
-```
-
 ```{r}
 library(anndata)
 library(dplyr)
@@ -51,15 +35,15 @@ library(schard)
 library(Seurat)
 library(STACAS)
 
-# use_condaenv('DAL')
-
-seed = 1234
+seed <- 1234
 set.seed(seed)
+
+data_path <- "/Users/juliazhong/Documents/graduate school/20.440/project"
 ```
 
 take a look at the .h5ad file as an AnnData object
 ```{r}
-ad <- read_h5ad("../adata_2025-04-20.h5ad")
+ad <- read_h5ad(paste0(data_path, "/adata_2025-04-20.h5ad"))
 ad
 ```
 
@@ -68,7 +52,7 @@ convert AnnData object to Seurat object
 # IMPORTANT! some other methods result in the loss of the raw counts matrix during the conversion. in Python, need to run:
 # adata.raw = adata.X.copy() when .X is the raw matrix, AND
 # use this schard function with use.raw=TRUE
-object = schard::h5ad2seurat('../adata_2025-04-20.h5ad', use.raw=TRUE)
+object = schard::h5ad2seurat(paste0(data_path, "/adata_2025-04-20.h5ad"), use.raw=TRUE)
 ```
 
 ```{r}
