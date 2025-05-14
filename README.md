@@ -45,9 +45,15 @@ tensor_decomp/
 # Installation 🔧
 To run the code, first, download the script(s) of your choice. Make sure the correct versions of each package are installed in your environment. Be sure to change `data_path`and `fig_path` variables to your data and desired figure output paths respectively. Now, you may run the script. 
 
-Note that to install the [parafac2](https://github.com/meyer-lab/parafac2/tree/main#) package from github, you will need to run the following in your virtual environment:
+Note that to install the Python package [parafac2](https://github.com/meyer-lab/parafac2/tree/main#) package from GitHub, run the following in your virtual environment:
 ```
 pip install git+https://github.com/meyer-lab/parafac2.git@main
+```
+To install the R packages [schard](https://github.com/cellgeni/schard/tree/main) and [STACAS](https://github.com/carmonalab/STACAS) from GitHub, you can use [remotes](https://github.com/r-lib/remotes):
+```
+install.packages("remotes")
+remotes::install_github("cellgeni/schard")
+remotes::install_github("carmonalab/STACAS")
 ```
 
 Software & Packages
@@ -84,9 +90,9 @@ For preprocessing/data_integration/:
 anndata==0.7.5.6
 dplyr==1.1.4
 ggplot2==3.5.2
-[schard](https://github.com/cellgeni/schard/tree/main)==0.0.1
+schard==0.0.1
 Seurat==5.3.0
-[STACAS](https://github.com/carmonalab/STACAS)==2.2.2                                       
+STACAS==2.2.2                                       
 ```
 
 # References 📋
